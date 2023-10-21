@@ -1,11 +1,7 @@
 pipeline {
     agent any
     triggers {
-        github(
-            allowPush: true,
-            allowPullRequest: false,
-            autoInvalidate: true,
-        )
+        githubPush()
     }
     stages {
         stage("Build") {
