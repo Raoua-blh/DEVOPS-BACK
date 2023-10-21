@@ -1,8 +1,6 @@
 pipeline {
     agent any
-    triggers {
-        githubPush()
-    }
+  
     stages {
         stage("Build") {
             steps {
@@ -16,7 +14,7 @@ pipeline {
         }
         stage("Deploy") {
             steps {
-                echo "Deploying the app..."
+                echo "Deploying the backend app..."
             }
         }
     }
