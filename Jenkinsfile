@@ -6,6 +6,7 @@ pipeline {
             allowPullRequest: false,
             autoInvalidate: true,
         )
+    }
     stages {
         stage("Build") {
             steps {
