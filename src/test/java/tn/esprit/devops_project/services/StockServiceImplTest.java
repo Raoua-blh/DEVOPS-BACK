@@ -50,7 +50,15 @@ class StockServiceImplTest {
         final Stock stock = this.stockService.retrieveStock(1L);
         assertEquals("stock 1", stock.getTitle());
     }
+    @Test
+    @DatabaseSetup("/data-set/stock-data.xml")
+    void retrieveStockNullId() {
+        Exception exception = assertThrows(NullPointerException.class,()
+                ->{
+            final Stock stock = this.stockService.retrieveStock(100L);
+        });
 
+    }
     @Test
     @DatabaseSetup("/data-set/stock-data.xml")
     void retrieveAllStock() {
