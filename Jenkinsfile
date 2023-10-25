@@ -36,6 +36,7 @@ pipeline {
                     }
                 }
             }
+         }
         stage("Nexus Deploy") {
             steps {
                 echo "Deploying the backend app..."
