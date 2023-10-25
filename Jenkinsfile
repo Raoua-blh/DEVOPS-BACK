@@ -22,17 +22,16 @@ pipeline {
         }
          stage("Build Docker Image ") {
             steps {
-                    def imageName = "rawaablh/devops-back:${BUILD_NUMBER}"
-                    sh "docker build -t ${imageName} ."
+                    echo "building docker image"
+                    sh "docker build -t rawaablh/devops-back:${BUILD_NUMBER} ."
             }
         }
          stage("Push to Docker") {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'docker-hub', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PWD')]) {
                     script {
-                        def imageName = "rawaablh/devops-back:${BUILD_NUMBER}"
                         sh "docker login -u $DOCKER_USER -p $DOCKER_PwD"
-                        sh "docker push ${imageName}"
+                        sh "docker push rawaablh/devops-back:${BUILD_NUMBER} "
                     }
                 }
             }
