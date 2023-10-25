@@ -20,9 +20,10 @@ pipeline {
                 sh 'mvn test'
             }
         }
-        stage("Deploy") {
+        stage("Nexus Deploy") {
             steps {
                 echo "Deploying the backend app..."
+                sh 'mvn deploy'
             }
         }
     }
