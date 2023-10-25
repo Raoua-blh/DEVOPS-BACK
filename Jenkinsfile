@@ -36,6 +36,13 @@ pipeline {
                 }
             }
          //}
+   stage("Docker Compose") {
+            steps {
+                echo "Docker compose"
+                sh 'docker compose -d '
+            }
+        }
+        
         stage("Nexus Deploy") {
             steps {
                 echo "Deploying the backend app..."
