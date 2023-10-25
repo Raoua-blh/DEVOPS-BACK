@@ -33,12 +33,14 @@ class ProductServiceImplTest {
     @Test
     @DatabaseSetup("/data-set/product-data.xml")
     void addProduct() {
-        final Product product = new Product();
+      /*  final Product product = new Product();
         product.setTitle("product2");
-    /*    this.productService.addProduct(product,2L);
+        product.setPrice(2);
+
+        this.productService.addProduct(product,1L);
         assertEquals(this.productService.retreiveAllProduct().size(),2);
         assertEquals(this.productService.retrieveProduct(2L).getTitle(),"Product2");
-   */
+*/
     }
 
     @Test

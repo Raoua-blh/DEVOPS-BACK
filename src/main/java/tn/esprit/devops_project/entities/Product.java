@@ -14,6 +14,14 @@ import java.io.Serializable;
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Product implements Serializable {
+    public Product(Long idProduct, String title, float price, int quantity, ProductCategory category) {
+        this.idProduct = idProduct;
+        this.title = title;
+        this.price = price;
+        this.quantity = quantity;
+        this.category = category;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long idProduct;
