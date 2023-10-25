@@ -8,7 +8,7 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
-  /*       stage("SonarQube analysis") {
+         stage("SonarQube analysis") {
             steps {
                 echo "test statique"
                  sh 'mvn sonar:sonar'
@@ -19,7 +19,7 @@ pipeline {
                 echo "Testing the backend app ..."
                 sh 'mvn test'
             }
-        }*/
+        }
          stage("Build Docker Image ") {
             steps {
                     echo "building docker image"
