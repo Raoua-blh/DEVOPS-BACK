@@ -28,14 +28,14 @@ pipeline {
         }
          stage("Push to Docker") {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'docker-hub', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PWD')]) {
+               // withCredentials([usernamePassword(credentialsId: 'docker-hub', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PWD')]) {
                     script {
                         sh "docker login -u $DOCKER_USER -p $DOCKER_PWD"
                         sh "docker push rawaablh/devops-back:${BUILD_NUMBER} "
                     }
                 }
             }
-         }
+         //}
         stage("Nexus Deploy") {
             steps {
                 echo "Deploying the backend app..."
