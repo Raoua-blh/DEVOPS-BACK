@@ -36,12 +36,7 @@ pipeline {
                 }
             }
          //}*/
- /*  stage("Docker Compose") {
-            steps {
-                echo "Docker compose"
-                sh 'docker compose up -d '
-            }
-        }*/
+
         
       /*  stage("Nexus Deploy") {
             steps {
@@ -61,6 +56,12 @@ pipeline {
             steps {
                     echo "building docker image"
                     sh "docker build -t rawaablh/devops-front ."
+            }
+        }
+           stage("Docker Compose front + back ") {
+            steps {
+                echo "Docker compose"
+                sh 'docker compose up -d '
             }
         }
     }
