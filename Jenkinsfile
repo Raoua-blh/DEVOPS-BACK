@@ -26,7 +26,7 @@ pipeline {
                     sh "docker build -t rawaablh/devops-back:${BUILD_NUMBER} ."
             }
         }
-         stage("Push to Docker") {
+      /*   stage("Push to Docker") {
             steps {
                // withCredentials([usernamePassword(credentialsId: 'docker-hub', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PWD')]) {
                     script {
@@ -35,7 +35,7 @@ pipeline {
                     }
                 }
             }
-         //}
+         //}*/
    stage("Docker Compose") {
             steps {
                 echo "Docker compose"
