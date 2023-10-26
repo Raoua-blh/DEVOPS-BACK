@@ -4,7 +4,7 @@ services:
     restart: unless-stopped
     environment:
       - MYSQL_DATABASE=devops
-      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_ROOT_PASSWORD=
     ports:
       - "3306:3306"
     volumes:
@@ -17,7 +17,7 @@ services:
     environment:
       - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/devops?createDatabaseIfNotExist=true
       - SPRING_DATASOURCE_USERNAME="root"
-      - SPRING_DATASOURCE_PASSWORD="root"
+      - SPRING_DATASOURCE_PASSWORD=""
     depends_on:
       - mysql
     stdin_open: true
