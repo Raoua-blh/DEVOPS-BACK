@@ -36,12 +36,12 @@ pipeline {
                 }
             }
          //}*/
-   stage("Docker Compose") {
+ /*  stage("Docker Compose") {
             steps {
                 echo "Docker compose"
                 sh 'docker compose up -d '
             }
-        }
+        }*/
         
       /*  stage("Nexus Deploy") {
             steps {
@@ -49,5 +49,13 @@ pipeline {
                 sh 'mvn deploy'
             }
         }*/
+
+        stage('Récupération du code front ') {
+            steps {
+                git(
+                    url: 'https://github.com/Raoua-blh/DEVOPS-FRONT.git'
+                )
+            }
+        }
     }
 }
