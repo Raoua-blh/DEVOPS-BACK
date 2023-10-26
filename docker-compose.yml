@@ -1,29 +1,33 @@
+version: '3.5'
+
 services:
   mysql:
+    image: 'mysql:5.7'
     container_name: mysql
-    image: mysql:5.7
     restart: unless-stopped
     environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_PASSWORD=root
       - MYSQL_DATABASE=devops
-      #- MYSQL_ROOT_PASSWORD=
     ports:
       - "3306:3306"
-    volumes:
-      - db:/var/lib/mysql
-  backend :
+
+  backend:
+    build: ./
+    container_name: backend
     ports:
       - "8082:8082"
     restart: on-failure
-    build: ./
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/devops?createDatabaseIfNotExist=true
-      - SPRING_DATASOURCE_USERNAME="root"
-      - SPRING_DATASOURCE_PASSWORD=""
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/devops?createDatabaseIfNotExist=true&useUnicode=true
+      SPRING_DATASOURCE_USERNAME: "root"
+      SPRING_DATASOURCE_PASSWORD: "root"
     depends_on:
       - mysql
     stdin_open: true
     tty: true
     volumes:
       - .m2:/root/.m2
+
 volumes:
-  db :
+  db:
