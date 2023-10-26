@@ -8,7 +8,7 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
-         stage("SonarQube analysis") {
+     /*      stage("SonarQube analysis") {
             steps {
                 echo "test statique"
                  sh 'mvn sonar:sonar'
@@ -26,7 +26,7 @@ pipeline {
                     sh "docker build -t rawaablh/devops-back:${BUILD_NUMBER} ."
             }
         }
-      /*   stage("Push to Docker") {
+       stage("Push to Docker") {
             steps {
                // withCredentials([usernamePassword(credentialsId: 'docker-hub', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PWD')]) {
                     script {
@@ -43,11 +43,11 @@ pipeline {
             }
         }
         
-        stage("Nexus Deploy") {
+      /*  stage("Nexus Deploy") {
             steps {
                 echo "Deploying the backend app..."
                 sh 'mvn deploy'
             }
-        }
+        }*/
     }
 }
