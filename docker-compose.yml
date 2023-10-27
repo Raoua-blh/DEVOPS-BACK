@@ -13,7 +13,7 @@ services:
       - "3306:3306"
 
   backend:
-    build: ./
+    image: rawaablh/devops-back:45
     container_name: backend
     ports:
       - "8082:8082"
@@ -28,6 +28,24 @@ services:
     tty: true
     volumes:
       - .m2:/root/.m2
+
+  front:
+    container_name: frontend
+    image: devops-front-front:latest
+    volumes:
+      - './:/usr/src/app'
+    ports:
+      - "8085:4200"
+    command: ["npm", "start"]
+    depends_on:
+      - backend
+
+  nginx:
+    container_name: nginx
+    image: devops-front-nginx:latest
+    ports:
+      - "8088:80"
+    command: ["nginx", "-g", "daemon off;"]
 
 volumes:
   db:
