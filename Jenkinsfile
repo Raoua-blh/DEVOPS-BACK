@@ -8,7 +8,7 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
-     /*      stage("SonarQube analysis") {
+           stage("SonarQube analysis") {
             steps {
                 echo "test statique"
                  sh 'mvn sonar:sonar'
@@ -35,15 +35,15 @@ pipeline {
                     }
                 }
             }
-         //}*/
+         //}
 
         
-      /*  stage("Nexus Deploy") {
+        stage("Nexus Deploy") {
             steps {
                 echo "Deploying the backend app..."
                 sh 'mvn deploy'
             }
-        }*/
+        }
 
         stage('Récupération du code front ') {
             steps {
@@ -52,7 +52,7 @@ pipeline {
                 )
             }
         }
-         /*stage("Build Docker Image front ") {
+         stage("Build Docker Image front ") {
             steps {
                     echo "building docker image"
                     sh "docker build -t rawaablh/devops-front ."
@@ -63,6 +63,6 @@ pipeline {
                 echo "Docker compose"
                 sh 'docker compose up -d '
             }
-        }*/
+        }
     }
 }
