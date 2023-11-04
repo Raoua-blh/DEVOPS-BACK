@@ -63,9 +63,9 @@ pipeline {
                 echo "Docker compose"
                 sh 'docker compose up -d '
             }
-        }
+        }*/
         
-    }*/
+    }
 
             post {
         always {
@@ -77,3 +77,4 @@ pipeline {
                 to: 'rawaa.blh@gmail.com'
         }    
 }
+    }
