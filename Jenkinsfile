@@ -72,7 +72,7 @@ pipeline {
             script {
                 currentBuild.result = currentBuild.currentResult
             }
-            emailext subject: "Pipeline ${currentBuild.result}: ${currentBuild.projectName}",
+            emailext subject: "Pipeline Status  ${currentBuild.result}: ${currentBuild.projectName}",
                 body: "The pipeline has ended with status: ${currentBuild.result}",
                 to: 'rawaa.blh@gmail.com'
         }    
