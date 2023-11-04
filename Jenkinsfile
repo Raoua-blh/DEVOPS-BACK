@@ -8,7 +8,7 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
-           stage("SonarQube analysis") {
+     /*      stage("SonarQube analysis") {
             steps {
                 echo "test statique"
                  sh 'mvn sonar:sonar'
@@ -64,5 +64,16 @@ pipeline {
                 sh 'docker compose up -d '
             }
         }
-    }
+        
+    }*/
+
+            post {
+        always {
+            script {
+                currentBuild.result = currentBuild.currentResult
+            }
+            emailext subject: "Pipeline ${currentBuild.result}: ${currentBuild.projectName}",
+                body: "The pipeline has ended with status: ${currentBuild.result}",
+                to: 'rawaa.blh@gmail.com'
+        }    
 }
