@@ -8,7 +8,7 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
-     /*      stage("SonarQube analysis") {
+           stage("SonarQube analysis") {
             steps {
                 echo "test statique"
                  sh 'mvn sonar:sonar'
@@ -63,7 +63,7 @@ pipeline {
                 echo "Docker compose"
                 sh 'docker compose up -d '
             }
-        }*/
+        }
         
     }
 
