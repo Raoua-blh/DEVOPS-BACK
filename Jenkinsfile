@@ -77,7 +77,7 @@ pipeline {
                 echo "Docker compose down if there is any containers"
                 sh "docker login -u $DOCKER_USER -p $DOCKER_PWD"
                // sh "docker compose build --no-cache"
-               // sh 'docker compose down '
+                sh 'docker compose down '
                 echo "docker compose up "
                 sh 'docker compose up -d '
             }
@@ -86,7 +86,8 @@ pipeline {
             steps {
 
                 echo 'Running K6 performance tests...'
-                sh 'k6 run perfomrance-test.js'
+                //sh 'k6 run perfomrance-test.js'
+                sh 'K6_PROMETHEUS_REMOTE_URL=http://192.168.33.10:9090/api/v1/write     ./k6 run perfomrance-test.js -o output-prometheus-remote'
             }
         }
         
