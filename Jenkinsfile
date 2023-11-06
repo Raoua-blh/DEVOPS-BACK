@@ -8,7 +8,7 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
-      /*    stage("SonarQube analysis") {
+         stage("SonarQube analysis") {
             steps {
                 echo "test statique"
                  sh 'mvn sonar:sonar'
@@ -20,12 +20,12 @@ pipeline {
                 sh 'mvn test'
             }
         }
-           stage("Jacoco Report") {
+       /*    stage("Jacoco Report") {
             steps {
                 echo "Testing the backend app ..."
                 sh 'mvn jacoco:report'
             }
-        }
+        }*/
            stage("Build Docker Image ") {
             steps {
                     echo "building docker image"
@@ -49,7 +49,7 @@ pipeline {
                 echo "Deploying the backend app..."
                 sh 'mvn deploy'
             }
-        }
+        }*/
         stage('Récupération du code front ') {
             steps {
                 git(
@@ -71,7 +71,7 @@ pipeline {
                         sh "docker push rawaablh/devops-front "
                     }
                 }
-            }*/
+            }
            stage("Docker Compose front + back + prometheus + grafana +cAdvisor ") {
             steps {
                 echo "Docker compose down if there is any containers"
@@ -86,8 +86,8 @@ pipeline {
             steps {
 
                 echo 'Running K6 performance tests...'
-                //sh 'k6 run perfomrance-test.js'
-                sh 'K6_PROMETHEUS_RW_SERVER_URL=http://192.168.33.10:9090/api/v1/write  k6 run -o experimental-prometheus-rw performance-test.js'
+                sh 'k6 run perfomrance-test.js'
+                //sh 'K6_PROMETHEUS_RW_SERVER_URL=http://192.168.33.10:9090/api/v1/write  k6 run -o experimental-prometheus-rw performance-test.js'
             }
         }
         
