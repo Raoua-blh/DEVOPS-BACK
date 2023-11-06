@@ -16,7 +16,7 @@ services:
     image: rawaablh/devops-back:8
     container_name: backend
     ports:
-      - "8089:8089"
+      - "8082:8082"
     restart: on-failure
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/devops?createDatabaseIfNotExist=true&useUnicode=true
