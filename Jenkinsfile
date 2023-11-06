@@ -26,7 +26,7 @@ pipeline {
                 sh 'mvn jacoco:report'
             }
         }
-         stage("Build Docker Image ") {
+      /*     stage("Build Docker Image ") {
             steps {
                     echo "building docker image"
                     sh "docker build -t rawaablh/devops-backk:${BUILD_NUMBER} ."
@@ -44,7 +44,7 @@ pipeline {
          //}
 
         
-   /*     stage("Nexus Deploy") {
+      stage("Nexus Deploy") {
             steps {
                 echo "Deploying the backend app..."
                 sh 'mvn deploy'
@@ -58,12 +58,12 @@ pipeline {
                 )
             }
         }
-         stage("Build Docker Image front ") {
+  /*       stage("Build Docker Image front ") {
             steps {
                     echo "building docker image"
                     sh "docker build -t rawaablh/devops-front ."
             }
-        }
+        }*/
            stage("Docker Compose front + back + prometheus + grafana +cAdvisor ") {
             steps {
                 echo "Docker compose down if there is any containers"
