@@ -2,13 +2,13 @@ pipeline {
     agent any
   
     stages {
-       stage("Build") {
+      stage("Build") {
             steps {
                 echo "Building the back end app..."
                 sh 'mvn clean install'
             }
         }
-     /*    stage("SonarQube analysis") {
+     /*     stage("SonarQube analysis") {
             steps {
                 echo "test statique"
                  sh 'mvn sonar:sonar'
@@ -20,7 +20,7 @@ pipeline {
                 sh 'mvn test'
             }
         }
-       /*    stage("Jacoco Report") {
+           stage("Jacoco Report") {
             steps {
                 echo "Testing the backend app ..."
                 sh 'mvn jacoco:report'
@@ -71,7 +71,7 @@ pipeline {
                         sh "docker push rawaablh/devops-front "
                     }
                 }
-            }*/
+            }
            stage("Docker Compose front + back + prometheus + grafana +cAdvisor ") {
             steps {
                 echo "Docker compose down if there is any containers"
@@ -91,7 +91,7 @@ pipeline {
             }
         }
         
-    }
+    }*/
 
             post {
         always {
@@ -102,5 +102,5 @@ pipeline {
                 body: "The pipeline has ended with status: ${currentBuild.result}",
                 to: 'rawaa.blh@gmail.com'
         }    
-}
+            }
     }
