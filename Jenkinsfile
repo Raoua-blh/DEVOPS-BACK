@@ -8,7 +8,7 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
-         stage("SonarQube analysis") {
+     /*    stage("SonarQube analysis") {
             steps {
                 echo "test statique"
                  sh 'mvn sonar:sonar'
@@ -25,7 +25,7 @@ pipeline {
                 echo "Testing the backend app ..."
                 sh 'mvn jacoco:report'
             }
-        }*/
+        }
            stage("Build Docker Image ") {
             steps {
                     echo "building docker image"
@@ -44,12 +44,12 @@ pipeline {
          //}
 
     
-     /* stage("Nexus Deploy") {
+      stage("Nexus Deploy") {
             steps {
                 echo "Deploying the backend app..."
                 sh 'mvn deploy'
             }
-        }*/
+        }
         stage('Récupération du code front ') {
             steps {
                 git(
@@ -71,7 +71,7 @@ pipeline {
                         sh "docker push rawaablh/devops-front "
                     }
                 }
-            }
+            }*/
            stage("Docker Compose front + back + prometheus + grafana +cAdvisor ") {
             steps {
                 echo "Docker compose down if there is any containers"
