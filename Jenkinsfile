@@ -64,7 +64,7 @@ pipeline {
                     sh "docker build -t rawaablh/devops-front ."
             }
         }
-               stage("Push to Docker") {
+               stage("Push to Docker front ") {
             steps {
                // withCredentials([usernamePassword(credentialsId: 'docker-hub', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PWD')]) {
                     script {
