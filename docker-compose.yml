@@ -16,7 +16,7 @@ services:
     image: rawaablh/devops-back:45
     container_name: backend
     ports:
-      - "8082:8082"
+      - "8081:8081"
     restart: on-failure
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/devops?createDatabaseIfNotExist=true&useUnicode=true
@@ -44,7 +44,7 @@ services:
     container_name: nginx
     image: devops-front-nginx:latest
     ports:
-      - "8088:80"
+      - "80:80"
     command: ["nginx", "-g", "daemon off;"]
 
   cadvisor:
