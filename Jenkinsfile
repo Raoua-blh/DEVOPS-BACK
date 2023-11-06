@@ -8,7 +8,7 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
-/*           stage("SonarQube analysis") {
+          stage("SonarQube analysis") {
             steps {
                 echo "test statique"
                  sh 'mvn sonar:sonar'
@@ -18,6 +18,12 @@ pipeline {
             steps {
                 echo "Testing the backend app ..."
                 sh 'mvn test'
+            }
+        }
+           stage("Jacoco Report") {
+            steps {
+                echo "Testing the backend app ..."
+                sh 'mvn jacoco:report'
             }
         }
          stage("Build Docker Image ") {
@@ -38,13 +44,13 @@ pipeline {
          //}
 
         
-        stage("Nexus Deploy") {
+   /*     stage("Nexus Deploy") {
             steps {
                 echo "Deploying the backend app..."
                 sh 'mvn deploy'
             }
         }
-
+*/
         stage('Récupération du code front ') {
             steps {
                 git(
