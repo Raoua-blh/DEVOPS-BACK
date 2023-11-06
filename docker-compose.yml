@@ -69,6 +69,7 @@ services:
       - "9090:9090"
     volumes:
       - "./prometheus.yml:/etc/prometheus/prometheus.yml"
+    command: --enable-feature=remote-write-receiver --config.file=/etc/prometheus/prometheus.yml
     privileged: true
     depends_on:
       - cadvisor
