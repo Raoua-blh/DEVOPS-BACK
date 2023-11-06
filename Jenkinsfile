@@ -86,8 +86,8 @@ pipeline {
             steps {
 
                 echo 'Running K6 performance tests...'
-                //sh 'k6 run perfomrance-test.js'
-                sh 'K6_PROMETHEUS_REMOTE_URL=http://localhost:9090/api/v1/write     ./k6 run performance-test.js -o output-prometheus-remote'
+                sh 'k6 run perfomrance-test.js'
+               // sh 'K6_PROMETHEUS_REMOTE_URL=http://localhost:9090/api/v1/write     ./k6 run performance-test.js -o output-prometheus-remote'
             }
         }
         
