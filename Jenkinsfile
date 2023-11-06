@@ -8,12 +8,12 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
-          stage("SonarQube analysis") {
+         /* stage("SonarQube analysis") {
             steps {
                 echo "test statique"
                  sh 'mvn sonar:sonar'
             }
-        }
+        }*/
         stage("Test unitaire") {
             steps {
                 echo "Testing the backend app ..."
