@@ -36,6 +36,6 @@ scrape_configs:
     static_configs:
       - targets: ["192.168.33.10:8090"]
 
-  - job_name: 'k6'
-    static_configs:
-      - targets: ["192.168.33.10.8181"]
+#  - job_name: 'k6'
+#    static_configs:
+ #     - targets: ["192.168.33.10.8181"]
