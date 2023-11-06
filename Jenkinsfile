@@ -58,7 +58,7 @@ pipeline {
                 )
             }
         }
-  /      stage("Build Docker Image front ") {
+      stage("Build Docker Image front ") {
             steps {
                     echo "building docker image"
                     sh "docker build -t rawaablh/devops-front ."
