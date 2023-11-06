@@ -44,7 +44,7 @@ services:
     container_name: nginx
     image: rawaablh/devops-front:latest
     ports:
-      - "80:80"
+      - "8088:80"
     command: ["nginx", "-g", "daemon off;"]
 
   cadvisor:
