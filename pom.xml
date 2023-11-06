@@ -15,7 +15,7 @@
     <description>DevOps_Project</description>
     <properties>
         <java.version>1.8</java.version>
-        <sonar.login>squ_3721b45272be6c337afad6a9ec75e81a0a589c14</sonar.login>
+        <sonar.login>squ_de9a154eaddcda0c466cadd715bc1b1609afb7ba</sonar.login>
     </properties>
     <dependencies>
         <dependency>
@@ -133,7 +133,7 @@
         <repository>
             <id>deploymentRepo</id>
             <name>Nexus Repository</name>
-            <url>http://localhost:8081/repository/maven-releases/</url>
+            <url>http://localhost:9997/repository/maven-releases/</url>
         </repository>
     </distributionManagement>
 </project>
