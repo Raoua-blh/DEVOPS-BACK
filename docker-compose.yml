@@ -38,7 +38,7 @@ services:
       - "8085:4200"
     command: ["npm", "start"]
   #  environment:
-      - no_proxy=127.0.0.1,localhost
+  #    - no_proxy=127.0.0.1,localhost
     # Add the following lines to remove npm proxy settings
   #    - npm_config_proxy=
   #    - npm_config_https_proxy=
