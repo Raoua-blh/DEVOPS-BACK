@@ -93,7 +93,7 @@ pipeline {
         
     }*/
 
-            post {
+    post {
         always {
             script {
                 currentBuild.result = currentBuild.currentResult
@@ -103,4 +103,5 @@ pipeline {
                 to: 'rawaa.blh@gmail.com'
         }    
             }
+ 
     }
