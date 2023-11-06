@@ -31,7 +31,7 @@ services:
 
   front:
     container_name: frontend
-    image: devops-front-front:latest
+    image: rawaablh/devops-front:latest
     volumes:
       - './:/usr/src/app'
     ports:
@@ -42,7 +42,7 @@ services:
 
   nginx:
     container_name: nginx
-    image: devops-front-nginx:latest
+    image: rawaablh/devops-front:latest
     ports:
       - "80:80"
     command: ["nginx", "-g", "daemon off;"]
