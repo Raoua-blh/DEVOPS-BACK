@@ -2,7 +2,7 @@ pipeline {
     agent any
   
     stages {
-        stage("Build") {
+    /*    stage("Build") {
             steps {
                 echo "Building the back end app..."
                 sh 'mvn clean install'
@@ -50,7 +50,7 @@ pipeline {
                 sh 'mvn deploy'
             }
         }
-
+*/
         stage('Récupération du code front ') {
             steps {
                 git(
