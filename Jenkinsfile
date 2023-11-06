@@ -8,12 +8,12 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
-         /* stage("SonarQube analysis") {
+          stage("SonarQube analysis") {
             steps {
                 echo "test statique"
                  sh 'mvn sonar:sonar'
             }
-        }*/
+        }
         stage("Test unitaire") {
             steps {
                 echo "Testing the backend app ..."
@@ -29,7 +29,7 @@ pipeline {
            stage("Build Docker Image ") {
             steps {
                     echo "building docker image"
-                    sh "docker build -t rawaablh/devops-backk:${BUILD_NUMBER} ."
+                    sh "docker build -t rawaablh/devops-back:${BUILD_NUMBER} ."
             }
         }
        stage("Push to Docker") {
@@ -37,19 +37,19 @@ pipeline {
                // withCredentials([usernamePassword(credentialsId: 'docker-hub', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PWD')]) {
                     script {
                         sh "docker login -u $DOCKER_USER -p $DOCKER_PWD"
-                        sh "docker push rawaablh/devops-backk:${BUILD_NUMBER} "
+                        sh "docker push rawaablh/devops-back:${BUILD_NUMBER} "
                     }
                 }
             }
          //}
 
-    /*    
+    
       stage("Nexus Deploy") {
             steps {
                 echo "Deploying the backend app..."
                 sh 'mvn deploy'
             }
-        }*/
+        }
 
         stage('Récupération du code front ') {
             steps {
