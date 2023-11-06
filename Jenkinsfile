@@ -76,8 +76,8 @@ pipeline {
             steps {
                 echo "Docker compose down if there is any containers"
                 sh "docker login -u $DOCKER_USER -p $DOCKER_PWD"
-               // sh "docker compose build --no-cache"
-               // sh 'docker compose down '
+                sh "docker compose build --no-cache"
+                sh 'docker compose down '
                 echo "docker compose up "
                 sh 'docker compose up -d '
             }
