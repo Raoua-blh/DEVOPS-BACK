@@ -58,10 +58,17 @@ pipeline {
                     sh "docker build -t rawaablh/devops-front ."
             }
         }*/
-           stage("Docker Compose front + back ") {
+           stage("Docker Compose front + back + prometheus + grafana +cAdvisor ") {
             steps {
                 echo "Docker compose"
                 sh 'docker compose up -d '
+            }
+        }
+          stage('Performance Testing K6') {
+            steps {
+
+                echo 'Running K6 performance tests...'
+                sh 'k6 run perfomrance-test.js'
             }
         }
         
