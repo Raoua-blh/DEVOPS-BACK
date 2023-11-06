@@ -64,6 +64,15 @@ pipeline {
                     sh "docker build -t rawaablh/devops-front ."
             }
         }
+               stage("Push to Docker") {
+            steps {
+               // withCredentials([usernamePassword(credentialsId: 'docker-hub', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PWD')]) {
+                    script {
+                        sh "docker login -u $DOCKER_USER -p $DOCKER_PWD"
+                        sh "docker push rawaablh/devops-front "
+                    }
+                }
+            }
            stage("Docker Compose front + back + prometheus + grafana +cAdvisor ") {
             steps {
                 echo "Docker compose down if there is any containers"
