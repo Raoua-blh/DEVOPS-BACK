@@ -26,7 +26,7 @@ pipeline {
                 sh 'mvn jacoco:report'
             }
         }
-      /*     stage("Build Docker Image ") {
+           stage("Build Docker Image ") {
             steps {
                     echo "building docker image"
                     sh "docker build -t rawaablh/devops-backk:${BUILD_NUMBER} ."
@@ -43,14 +43,14 @@ pipeline {
             }
          //}
 
-        
+    /*    
       stage("Nexus Deploy") {
             steps {
                 echo "Deploying the backend app..."
                 sh 'mvn deploy'
             }
-        }
-*/
+        }*/
+
         stage('Récupération du code front ') {
             steps {
                 git(
