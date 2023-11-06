@@ -57,7 +57,7 @@ pipeline {
                     url: 'https://github.com/Raoua-blh/DEVOPS-FRONT.git'
                 )
             }
-        }*/
+        }
          stage("Build Docker Image front ") {
             steps {
                     echo "building docker image"
