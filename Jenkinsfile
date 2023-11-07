@@ -89,9 +89,9 @@ pipeline {
                 sh 'k6 run perfomrance-test.js'
                 //sh 'K6_PROMETHEUS_RW_SERVER_URL=http://192.168.33.10:9090/api/v1/write  k6 run -o experimental-prometheus-rw performance-test.js'
             }
-        }
+        }*/
         
-    }*/
+    }
 
     post {
         always {
@@ -104,4 +104,5 @@ pipeline {
         }    
             }
  
-    }
+    
+}
