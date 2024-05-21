@@ -15,7 +15,7 @@
     <description>DevOps_Project</description>
     <properties>
         <java.version>1.8</java.version>
-        <sonar.login>squ_de9a154eaddcda0c466cadd715bc1b1609afb7ba</sonar.login>
+        <sonar.login>squ_7e80fda2270d7d1642a958fd5081346a11810e66</sonar.login>
     </properties>
     <dependencies>
         <dependency>
