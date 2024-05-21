@@ -13,7 +13,8 @@ pipeline {
          stage("SonarQube analysis") {
             steps {
                 echo "test statique"
-                 sh 'mvn sonar:sonar'
+                 //sh 'mvn sonar:sonar'
+                 sh  'mvn sonar:sonar -Dsonar.projectKey=mon-projet-key -Dsonar.host.url=http://20.229.114.247:9000/'
             }
         }
         stage("Test unitaire") {
