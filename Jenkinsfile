@@ -24,12 +24,24 @@ pipeline {
                 sh 'mvn test'
             }
         }
-    //        stage("Jacoco Report") {
-    //         steps {
-    //             echo "Testing the backend app ..."
-    //             sh 'mvn jacoco:report'
-    //         }
-    //     }
+           stage("Jacoco Report") {
+            steps {
+                echo "Testing the backend app ..."
+                sh 'mvn jacoco:report'
+            }
+        }
+
+           stage('OWASP Dependency-Check Vulnerabilities') {
+            steps {
+                dependencyCheck additionalArguments: ''' 
+                            -o './'
+                            -s './'
+                            -f 'ALL' 
+                            --prettyPrint''', odcInstallation: 'OWASP Dependency-Check Vulnerabilities'
+                
+                dependencyCheckPublisher pattern: 'dependency-check-report.xml'
+          }
+        }
     //        stage("Build Docker Image ") {
     //         steps {
     //                 echo "building docker image"
