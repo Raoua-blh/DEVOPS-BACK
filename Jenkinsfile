@@ -33,7 +33,7 @@ pipeline {
 
            stage('OWASP Dependency-Check Vulnerabilities') {
             steps {
-                  dependencyCheck additionalArguments: '--format HTML', odcInstallation: 'DP-Check'
+                  dependencyCheck additionalArguments: '--format HTML --nvdApiKey cf29c588-b69a-4530-a0b1-65aeee13c321 ' , odcInstallation: 'DP-Check'
           }
         }
     //        stage("Build Docker Image ") {
